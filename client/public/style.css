@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.custom-center {
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.right {
+  margin-right: 15px;
+}
+
+.auto-left {
+  margin-left: auto;
+}
+
+.custom-border-top {
+  border-top: solid 1px #dfdfdf;
+}
+
+.custom-body-center {
+  margin-left: 260px !important;
+  margin-right: 300px !important;
+}
+
+.custom-card-bottom {
+  margin-bottom: 60px;
+}
+
+.borders {
+  border: solid black 1px;
+}
+
+.icon-padding {
+  padding: 20px;
+}
+
+.p-margin {
+  margin-bottom: 10px !important;
+  margin-left: 10px;
+}
+
+.custom-followers {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 170px;
+  margin-bottom: 1.2rem;
+}
+
+.center-container {
+  margin: auto;
+}
+
+.custom-profile-margin {
+  margin-bottom: 1.2rem;
+}
+
+.custom-post-margin {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-login-button {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.custom-flex {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+.custom-container-create-post{
+
+}
+
+.custom-create-post{
+  max-width: 40%;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+.no-link{
+  color: black;
+}

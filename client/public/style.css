@@ -101,3 +101,11 @@
 .no-link{
   color: black;
 }
+
+.m-bottom{
+  margin-bottom: 15px;
+}
+
+.btn{
+  cursor: pointer;
+}

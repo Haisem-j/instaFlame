@@ -1,9 +1,14 @@
 import React from "react";
 import HeaderProfile from "./HeaderProfile";
 import Post from "./Post";
-import Modal from '../Modal/index'
 class Profile extends React.Component {
+
+  componentDidMount(){
+    let name = this.props.location.pathname.split('/');
+    console.log(name[2]);
+  }
   render() {
+
     return (
       <section className="section has-background-light custom-border-top">
         <div className="custom-body-center">
@@ -19,7 +24,6 @@ class Profile extends React.Component {
             </div>
           </section>
         </div>
-        <Modal />
       </section>
     );
   }

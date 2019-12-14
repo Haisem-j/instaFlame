@@ -2,9 +2,11 @@
 
 const router = require("express").Router();
 const User = require("../models/User");
+const verify = require("../verifyToken");
 const { registerValidation, loginValidation } = require("../validation");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 // Register Route
 router.post("/register", async (req, res) => {
@@ -36,9 +38,9 @@ router.post("/register", async (req, res) => {
   // Save User to database
   try {
     const savedUser = await user.save();
-    res.send(`User ${savedUser.username} created!!`);
+    res.json({ success: true });
   } catch (err) {
-    res.status(400).send(err);
+    res.json({ error: err });
   }
 });
 
@@ -64,13 +66,21 @@ router.post("/login", async (req, res) => {
   const save = await user.updateOne({ token: token });
 
   res.json({
-    "token": token,
-    "islogged": true
+    token: token,
+    islogged: true
   });
 });
 
-// Logout route
-router.post('/logout', async (req,res)=>{
-  res.send('test')
+router.get('/user', verify ,async (req,res)=>{
+  const user = await User.findOne({ _id: res.locals.user._id })
+  res.json({username: user.username})
 })
+
+// Logout route
+router.post("/logout", async (req, res) => {
+  const user = await User.findOne({ token: req.body.token });
+  user.token = 'none';
+  await user.save();
+});
+
 module.exports = router;

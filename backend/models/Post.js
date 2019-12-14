@@ -13,6 +13,9 @@ const postSchema = new mongoose.Schema({
   },
   desc: {
     type: String,
+  },
+  likes: {
+    type: Number
   }
 });
 

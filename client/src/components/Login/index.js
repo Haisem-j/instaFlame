@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { isLoggedIn } from "../../actions";
+import { isLoggedIn, loginToken, setUser} from "../../actions";
 import { Link } from "react-router-dom";
 
 class Login extends React.Component {
@@ -37,8 +37,8 @@ class Login extends React.Component {
         }
       });
       let result = await response.json();
-
-      console.log(result.islogged);
+      this.props.setUser(user.username);
+      this.props.loginToken(result.token)
       this.props.isLoggedIn(true);
     } catch (err) {
       console.log(err);
@@ -50,7 +50,7 @@ class Login extends React.Component {
         <div className="custom-login">
           <div className="box">
             <div className="custom-flex">
-              <span class="icon is-size-1" style={{ marginTop: "5px" }}>
+              <span className="icon is-size-1" style={{ marginTop: "5px" }}>
                 <ion-icon name="flame"></ion-icon>
               </span>
 
@@ -58,42 +58,42 @@ class Login extends React.Component {
             </div>
 
             <form onSubmit={this.mySubmitHandler}>
-              <div class="field">
-                <p class="control has-icons-left has-icons-right">
+              <div className="field">
+                <p className="control has-icons-left has-icons-right">
                   <input
-                    class="input"
+                    className="input"
                     type="user"
                     name="username"
                     placeholder="Username"
                     onChange={this.usernameHandler}
                   />
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-envelope"></i>
                   </span>
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
+                  <span className="icon is-small is-right">
+                    <i className="fas fa-check"></i>
                   </span>
                 </p>
               </div>
-              <div class="field">
-                <p class="control has-icons-left">
+              <div className="field">
+                <p className="control has-icons-left">
                   <input
-                    class="input"
+                    className="input"
                     type="password"
                     name="password"
                     placeholder="Password"
                     onChange={this.passwordHandler}
                   />
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-lock"></i>
                   </span>
                 </p>
               </div>
-              <div class="field">
-                <p class="control custom-login-button">
-                  <button class="button is-success is-small">Login</button>
+              <div className="field">
+                <p className="control custom-login-button">
+                  <button className="button is-success is-small">Login</button>
                   <Link to="/register">
-                    <button class="button is-info is-small">Sign Up</button>
+                    <button className="button is-info is-small">Sign Up</button>
                   </Link>
                 </p>
               </div>
@@ -106,10 +106,11 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state);
   return state;
 };
 
 export default connect(mapStateToProps, {
-  isLoggedIn
+  isLoggedIn,
+  loginToken,
+  setUser
 })(Login);

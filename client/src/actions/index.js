@@ -4,3 +4,16 @@ export const isLoggedIn = (bool) =>{
         payload: bool
     }
 }
+
+export const loginToken = (token) =>{
+    return{
+        type: 'TOKEN_TRUE',
+        payload: token
+    }
+}
+export const setUser = (user) =>{
+    return{
+        type: 'USER_NAME',
+        payload: user
+    }
+}

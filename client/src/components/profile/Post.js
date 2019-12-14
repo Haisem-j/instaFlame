@@ -8,7 +8,7 @@ class Post extends React.Component{
                 <figure class="image is-1x1">
               <img
                 src="https://bulma.io/images/placeholders/1280x960.png"
-                alt="Placeholder image"
+                alt="Placeholder"
               />
             </figure>
               </div>

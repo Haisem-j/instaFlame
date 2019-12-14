@@ -17,18 +17,18 @@ class Modal extends React.Component {
   }
   render() {
     return (
-      <div class={this.state.modalState === true ? "modal is-active" : "modal"}>
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <p class="image is-4by3">
+      <div className={this.state.modalState === true ? "modal is-active" : "modal"}>
+        <div className="modal-background"></div>
+        <div className="modal-content">
+          <p className="image is-4by3">
             <img
               src="https://bulma.io/images/placeholders/1280x960.png"
-              alt=""
+              alt="bulma logo"
             />
           </p>
         </div>
         <button
-          class="modal-close is-large"
+          className="modal-close is-large"
           aria-label="close"
           onClick={this.modalOff}
         ></button>

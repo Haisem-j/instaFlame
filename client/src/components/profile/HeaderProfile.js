@@ -1,31 +1,32 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class HeaderProfile extends React.Component {
+  
   render() {
     return (
-      <div class="columns">
-        <div class="column is-one-third">
-          <figure class="image is-128x128 center-container">
+      <div className="columns">
+        <div className="column is-one-third">
+          <figure className="image is-128x128 center-container">
             <img
-              class="is-rounded"
+              className="is-rounded"
               src="https://bulma.io/images/placeholders/96x96.png"
-              alt="Placeholder image"
+              alt="Placeholder "
             />
           </figure>
         </div>
-        <div class="column">
-          <div class="media-content">
-            <article class="media custom-profile-margin">
-              <figure class="media-left">
-                <h1 class="title">__jemal</h1>
+        <div className="column">
+          <div className="media-content">
+            <article className="media custom-profile-margin">
+              <figure className="media-left">
+                <h1 className="title">__jemal</h1>
               </figure>
-              <div class="media-content">
+              <div className="media-content">
                 <button className="button">Edit Profile</button>
               </div>
             </article>
-            <h2 class="subtitle-5 custom-followers">
-              <span>2 posts</span> <span>0 followers</span>{" "}
-              <span>0 following</span>
+            <h2 className="subtitle-5 custom-followers">
+              <span>2 posts</span>
             </h2>
             <h1 className="title is-6 is-spaced">Toronto</h1>
           </div>
@@ -34,5 +35,8 @@ class HeaderProfile extends React.Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return state;
+};
 
-export default HeaderProfile;
+export default connect(mapStateToProps)(HeaderProfile);

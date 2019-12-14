@@ -1,12 +1,8 @@
-
-export default (init=false, action) =>{
-    if(action.type === 'LOGGED_IN'){
-        if(action.payload === true){
-            return true;
-        }else{
-            return false;
-        }
-    }else{
-        return init
-    }
-}
+export default (init = false, action) => {
+  switch (action.type) {
+    case "LOGGED_IN":
+      return action.payload === true ? true : false;
+    default:
+      return false;
+  }
+};

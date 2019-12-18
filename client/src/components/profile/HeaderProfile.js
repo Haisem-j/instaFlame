@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 class HeaderProfile extends React.Component {
-  
   render() {
     return (
       <div className="columns">
@@ -19,14 +18,14 @@ class HeaderProfile extends React.Component {
           <div className="media-content">
             <article className="media custom-profile-margin">
               <figure className="media-left">
-                <h1 className="title">__jemal</h1>
+                <h1 className="title">{this.props.name}</h1>
               </figure>
               <div className="media-content">
                 <button className="button">Edit Profile</button>
               </div>
             </article>
             <h2 className="subtitle-5 custom-followers">
-              <span>2 posts</span>
+              <span>{this.props.posts} posts</span>
             </h2>
             <h1 className="title is-6 is-spaced">Toronto</h1>
           </div>

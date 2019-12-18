@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 class Body extends React.Component {
   async componentDidMount() {
-
     try {
       let response = await fetch("http://localhost:5000/api/posts", {
         method: "GET",
@@ -13,7 +12,6 @@ class Body extends React.Component {
         }
       });
       let final = await response.json();
-      console.log(final);
       this.setState({
         posts: final
       });

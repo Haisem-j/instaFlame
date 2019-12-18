@@ -11,12 +11,10 @@ const path = require("path");
 const dotenv = require("dotenv");
 const { connection1 } = require("../database");
 const Post = require("../models/Post");
-const User = require('../models/User')
+const User = require("../models/User");
 
 dotenv.config();
-router.get('/test', async (req,res)=>{
-
-})
+router.get("/test", async (req, res) => {});
 // Initialize gfs
 let gfs;
 connection1.once("open", () => {
@@ -70,15 +68,19 @@ router.post("/upload", verify, upload.single("file"), async (req, res) => {
 });
 
 // Route GET retrieves all images and stores in array
-router.get("/", verify ,async (req, res) => {
-  // const test = await gfs.files.find().toArray();
-  // let names = [];
-  // test.map(file => {
-  //   names.push(file.filename);
-  // });
-  // res.json(names);
+router.get("/", verify, async (req, res) => {
   const posts = await Post.find();
-  res.json(posts)
+  res.json(posts);
+});
+
+// Route GET retrieves posts that have one profileId
+router.get("/profile/:profileId", verify, async (req, res) => {
+  try {
+    const posts = await Post.find({ profileId: req.params.profileId });
+    res.json(posts);
+  } catch (error) {
+    res.status(404).json;
+  }
 });
 
 // // route GET image/:filename
@@ -106,7 +108,38 @@ router.get("/:filename", (req, res) => {
   });
 });
 
+// Route POST deletes single post
+router.post("/del/:imageId", async (req, res) => {
+
+  try {
+    gfs.remove(
+      { filename: req.params.imageId, root: "uploads" },
+      (err, gridStore) => {
+        if (err) {
+          return res.status(404).json({
+            err: err
+          });
+        }
+      }
+    );
+    const post = await Post.findOneAndDelete({imageId: req.params.imageId})
+    res.json({'Works': true})
+  } catch (err) {
+    res.json({"error": err})
+  }
+});
 
 
+router.post('/like/:imageId', async (req,res)=>{
+  try {
+    const post = await Post.findOne({imageId: req.params.imageId});
+    post.likes++;
+    await post.save()
+    res.json({'Works': true})
 
+  } catch (err) {
+    res.json({"error": err})
+
+  }
+})
 module.exports = router;

@@ -6,7 +6,6 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import CreatePicture from "./components/CreatePicture";
 import { Switch, Route, Redirect } from "react-router-dom";
-// import Modal from "./components/Modal";
 import { connect } from "react-redux";
 
 class App extends React.Component {

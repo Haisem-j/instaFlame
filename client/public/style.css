@@ -109,3 +109,12 @@
 .btn{
   cursor: pointer;
 }
+
+.x-logo{
+  top: 10px;
+  right: 10px;
+}
+
+.heart{
+  color: red;
+}

@@ -1,5 +1,12 @@
 ## InstaFlame
-To run
+### Live Website
+https://dreamy-pasteur-22b55d.netlify.com/
+
+To login you can use this test account
+Login: testaccount
+Password: testaccount
+
+### To run
     - npm install for both client and backend directory(for all dependencies)
     - npm run start for both client and backend
     - go to http://localhost:3000/ to access the app
